@@ -7,6 +7,7 @@ import { useState } from "react";
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
 import { erlangB, carriedTraffic, efficiency, trafficIntensity } from "@/utils/helper.tsx";
+import { toast } from "react-toastify";
 
 function Chapter13() {
   const [A, setA] = useState("");
@@ -25,25 +26,37 @@ function Chapter13() {
   const handleCalc = () => {
     const a = parseFloat(A);
     const n = parseInt(N, 10);
-    if (!Number.isFinite(a) || !Number.isFinite(n) || n < 0) return;
+    if (!Number.isFinite(a) || !Number.isFinite(n) || n < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
     setResult(erlangB(a, n));
   };
   const handleCalc2 = () => {
     const a = parseFloat(AA);
     const pb = parseFloat(Pb);
-    if (!Number.isFinite(a) || !Number.isFinite(pb) || pb < 0) return;
+    if (!Number.isFinite(a) || !Number.isFinite(pb) || pb < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
     setResult2(carriedTraffic(a, pb));
   };
   const handleCalc3 = () => {
     const ac = parseFloat(Ac);
     const nn = parseFloat(NN);
-    if (!Number.isFinite(ac) || !Number.isFinite(nn) || nn < 0) return;
+    if (!Number.isFinite(ac) || !Number.isFinite(nn) || nn < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
     setResult3(efficiency(ac, nn));
   };
   const handleCalc4 = () => {
     const l = parseFloat(lambda);
     const hh = parseFloat(h);
-    if (!Number.isFinite(l) || !Number.isFinite(hh) || hh < 0) return;
+    if (!Number.isFinite(l) || !Number.isFinite(hh) || hh < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
     setResult4(trafficIntensity(l, hh));
   };
 

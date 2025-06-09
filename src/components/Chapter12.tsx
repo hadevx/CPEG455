@@ -6,6 +6,7 @@ import { useState } from "react";
 import "katex/dist/katex.min.css";
 import { BlockMath } from "react-katex";
 import { piconetProbability1, piconetProbability2, numberOfPiconets } from "../utils/helper";
+import { toast } from "react-toastify";
 
 function Chapter12() {
   const [N, setN] = useState("");
@@ -17,15 +18,26 @@ function Chapter12() {
 
   const handleCalc = () => {
     let n = parseInt(N);
+    if (!Number.isFinite(n) || n < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
     setResult(piconetProbability1(n));
   };
   const handleCalc2 = () => {
     let nn = parseInt(NN);
+    if (!Number.isFinite(nn) || nn < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
     setResult2(piconetProbability2(nn));
   };
   const handleCalc3 = () => {
     let p = parseFloat(P);
-    if (!Number.isFinite(p) || p < 0) return;
+    if (!Number.isFinite(p) || p < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
     setResult3(numberOfPiconets(p));
   };
 
