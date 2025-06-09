@@ -1,12 +1,9 @@
-/* ─── UI ─────────────────────────────────────────────────────────────────── */
-import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/shadcn/ui/card";
-import { Input } from "@/shadcn/ui/input";
 import { Button } from "@/shadcn/ui/button";
 import { useState } from "react";
 import "katex/dist/katex.min.css";
 import Chapter13 from "./Chapter13";
 import Chapter12 from "./Chapter12";
-import { Calculator, Home, User, Mail, BookOpen } from "lucide-react";
+import { Calculator } from "lucide-react";
 
 const categories = ["Chapter 13", "Chapter 12"];
 
