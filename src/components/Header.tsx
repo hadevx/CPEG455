@@ -1,4 +1,4 @@
-import { Calculator, Home, User, Mail } from "lucide-react";
+import { Home, User, Mail } from "lucide-react";
 import { Button } from "@/shadcn/ui/button";
 
 export default function Header({
