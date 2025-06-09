@@ -1,7 +1,13 @@
 import { Calculator, Home, User, Mail } from "lucide-react";
 import { Button } from "@/shadcn/ui/button";
 
-export default function Header({ activeSection, setActiveSection }) {
+export default function Header({
+  activeSection,
+  setActiveSection,
+}: {
+  activeSection: string;
+  setActiveSection: (section: string) => void;
+}) {
   return (
     <header className="sticky mx-auto px-2 lg:w-3/4 w-full top-0 z-50  border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
