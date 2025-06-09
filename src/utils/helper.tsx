@@ -24,3 +24,16 @@ export function efficiency(Ac: number, N: number): number {
 export function trafficIntensity(lambda: number, h: number): number {
   return lambda * h;
 }
+
+export function piconetProbability1(n: number): number {
+  return Math.pow(1 - 1 / 79, n - 1);
+}
+export function piconetProbability2(n: number): number {
+  return Math.pow(1 - 1 / 79, 2 * n - 2);
+}
+
+export function numberOfPiconets(p: number): number {
+  const base = 1 - 1 / 79;
+  const n = Math.log(p) / (2 * Math.log(base)) + 1;
+  return n;
+}
