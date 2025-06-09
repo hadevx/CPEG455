@@ -6,7 +6,12 @@ export default function AboutContent() {
       <div className="text-center space-y-4">
         <BookOpen className="h-16 w-16 text-primary mx-auto" />
         <h1 className="text-4xl font-bold">About CPEG455</h1>
-        <p className="text-xl text-muted-foreground">Understanding the wireless networks</p>
+        <p className="text-xl text-muted-foreground">
+          Multidisciplinary, project-oriented design course that considers aspects of wireless and
+          mobile systems. Including wireless networks and link protocols, mobile networking
+          including support for the Internet Protocol suite, mobile middleware, and mobile
+          applications.
+        </p>
       </div>
     </div>
   );

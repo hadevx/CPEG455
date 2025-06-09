@@ -9,7 +9,7 @@ export default function ContactContent() {
         <Mail className="h-16 w-16 text-primary mx-auto" />
         <h1 className="text-4xl font-bold">Get in Touch</h1>
         <p className="text-xl text-muted-foreground">
-          Have questions about CPEG455 or want to contribute?
+          Have questions about CPEG455 website or want to contribute?
         </p>
       </div>
 

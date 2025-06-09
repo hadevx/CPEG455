@@ -22,9 +22,7 @@ export default function HomeContent() {
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Multidisciplinary, project-oriented design course that considers aspects of wireless and
-          mobile systems. Including wireless networks and link protocols, mobile networking
-          including support for the Internet Protocol suite, mobile middleware, and mobile
-          applications.
+          mobile systems. Including wireless networks and link protocols.
         </p>
       </div>
       {/* Category Filter */}
