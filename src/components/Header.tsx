@@ -12,10 +12,9 @@ export default function Header({
     <header className="sticky mx-auto px-2 lg:w-3/4 w-full top-0 z-50  border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center space-x-2">
-          <Calculator className="h-6 w-6" />
           <span className="font-bold text-xl">CPEG 455</span>
         </div>
-        <nav className="flex items-center space-x-2 lg:space-x-6">
+        <nav className="flex items-center lg:space-x-6">
           <Button
             variant={activeSection === "Home" ? "default" : "ghost"}
             size="sm"

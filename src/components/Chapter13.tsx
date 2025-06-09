@@ -48,8 +48,8 @@ function Chapter13() {
   };
 
   return (
-    <div className="grid  gap-6  md:grid-cols-2 lg:grid-cols-2">
-      <Card className="hover:shadow-lg transition-shadow duration-300">
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
+      <Card className="hover:shadow-lg  transition-shadow duration-300">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg">Probability of Blocking</CardTitle>
@@ -92,9 +92,9 @@ function Chapter13() {
             />
             <Button onClick={handleCalc}>Calculate</Button>
           </div>
-          <Badge variant="secondary" className="text-sm leading-relaxed">
+          <CardDescription className="text-sm leading-relaxed">
             Everytime you change the values, you need to click "Calculate"
-          </Badge>
+          </CardDescription>
           {/* Result */}
           {result !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
@@ -150,9 +150,9 @@ function Chapter13() {
             />
             <Button onClick={handleCalc2}>Calculate</Button>
           </div>
-          <Badge variant="secondary" className="text-sm leading-relaxed">
+          <CardDescription className="text-sm leading-relaxed">
             Everytime you change the values, you need to click "Calculate"
-          </Badge>
+          </CardDescription>
           {/* Result */}
           {result2 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
@@ -203,9 +203,9 @@ function Chapter13() {
             />
             <Button onClick={handleCalc3}>Calculate</Button>
           </div>
-          <Badge variant="secondary" className="text-sm leading-relaxed">
+          <CardDescription className="text-sm leading-relaxed">
             Everytime you change the values, you need to click "Calculate"
-          </Badge>
+          </CardDescription>
           {/* Result */}
           {result3 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
@@ -256,9 +256,9 @@ function Chapter13() {
             />
             <Button onClick={handleCalc4}>Calculate</Button>
           </div>
-          <Badge variant="secondary" className="text-sm leading-relaxed">
+          <CardDescription className="text-sm leading-relaxed">
             Everytime you change the values, you need to click "Calculate"
-          </Badge>
+          </CardDescription>
           {/* Result */}
           {result4 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
