@@ -6,7 +6,13 @@ import { Badge } from "@/shadcn/ui/badge";
 import { useState } from "react";
 import "katex/dist/katex.min.css";
 import { BlockMath, InlineMath } from "react-katex";
-import { erlangB, carriedTraffic, efficiency, trafficIntensity } from "@/utils/helper.tsx";
+import {
+  erlangB,
+  carriedTraffic,
+  efficiency,
+  trafficIntensity,
+  totalTrafficIntensity,
+} from "@/utils/helper.tsx";
 import { toast } from "react-toastify";
 
 function Chapter13() {
@@ -22,6 +28,9 @@ function Chapter13() {
   const [lambda, setLambda] = useState("");
   const [h, setH] = useState("");
   const [result4, setResult4] = useState<number | null>(null);
+  const [k, setK] = useState("");
+  const [Ai, setAi] = useState("");
+  const [result5, setResult5] = useState<number | null>(null);
 
   const handleCalc = () => {
     const a = parseFloat(A);
@@ -59,6 +68,15 @@ function Chapter13() {
     }
     setResult4(trafficIntensity(l, hh));
   };
+  const handleCalc5 = () => {
+    const kk = parseInt(k);
+    const ai = parseFloat(Ai);
+    if (!Number.isFinite(kk) || !Number.isFinite(ai) || ai < 0) {
+      toast.error("Please enter a valid number");
+      return;
+    }
+    setResult5(totalTrafficIntensity(kk, ai));
+  };
 
   return (
     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2">
@@ -76,7 +94,7 @@ function Chapter13() {
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            A: is the traffic intensity | N: is the number of channels.
+            A: Traffic intensity | N: Number of channels.
           </CardDescription>
         </CardContent>
       </Card>
@@ -90,7 +108,7 @@ function Chapter13() {
           {/* Inputs */}
           <div className="flex gap-2">
             <Input
-              placeholder="A (Erlangs)"
+              placeholder="A (Erlang)"
               value={A}
               onChange={(e) => setA(e.target.value)}
               type="number"
@@ -131,11 +149,11 @@ function Chapter13() {
         <CardContent className="space-y-4">
           <div className="text-center py-6 bg-muted/30 rounded-lg">
             <div className="text-2xl font-mono">
-              <BlockMath math="A_c = A * (1-P(B))" />
+              <BlockMath math="A_c = A \times (1-P(B))" />
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            A: is the offered traffic | P(B): Probability of blocking
+            A: The offered traffic | P(B): The probability of blocking
           </CardDescription>
         </CardContent>
       </Card>
@@ -148,7 +166,7 @@ function Chapter13() {
           {/* Inputs */}
           <div className="flex gap-2">
             <Input
-              placeholder="A (Erlangs)"
+              placeholder="A (Erlang)"
               value={AA}
               onChange={(e) => setAA(e.target.value)}
               type="number"
@@ -169,7 +187,7 @@ function Chapter13() {
           {/* Result */}
           {result2 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
-              <BlockMath math={`A_c = ${AA} * (1 - ${Pb}) = ${result2.toFixed(4)}`} />
+              <BlockMath math={`A_c = ${AA} \\times (1 - ${Pb}) = ${result2.toFixed(4)}`} />
             </div>
           )}
         </CardContent>
@@ -184,11 +202,11 @@ function Chapter13() {
         <CardContent className="space-y-4">
           <div className="text-center py-6 bg-muted/30 rounded-lg">
             <div className="text-2xl font-mono">
-              <BlockMath math="\mu = \frac{A_c}{N}=\frac{A*(1-P(B))}{N}" />
+              <BlockMath math="\mu = \frac{A_c}{N}=\frac{A \times (1-P(B))}{N}" />
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            A: is the traffic intensity (offered load) | N: is the number of servers (or channels),
+            <InlineMath math="A_c" />: The carried traffic | N: The number of channels.
           </CardDescription>
         </CardContent>
       </Card>
@@ -201,7 +219,7 @@ function Chapter13() {
           {/* Inputs */}
           <div className="flex gap-2">
             <Input
-              placeholder="Ac (Erlangs)"
+              placeholder="Ac (Erlang)"
               value={Ac}
               onChange={(e) => setAc(e.target.value)}
               type="number"
@@ -237,11 +255,11 @@ function Chapter13() {
         <CardContent className="space-y-4">
           <div className="text-center py-6 bg-muted/30 rounded-lg">
             <div className="text-2xl font-mono">
-              <BlockMath math="A_{tot} = \lambda*h" />
+              <BlockMath math="A_{I} = \lambda \times h" />
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            <InlineMath math="\lambda" />: calls/hour" | h: call duration
+            <InlineMath math="\lambda" />: Number of calls/hour | h: call duration (hour)
           </CardDescription>
         </CardContent>
       </Card>
@@ -275,7 +293,62 @@ function Chapter13() {
           {/* Result */}
           {result4 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
-              <BlockMath math={`A_{tot} = ${lambda} * ${h} = ${result4.toFixed(2)}`} />
+              <BlockMath math={`A_{I} = ${lambda} \\times ${h} = ${result4.toFixed(2)}`} />
+            </div>
+          )}
+        </CardContent>
+      </Card>
+      <Card className="hover:shadow-lg transition-shadow duration-300">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-lg">Total Traffic Intensity</CardTitle>
+            <Badge variant="secondary">Chapter 13</Badge>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="text-center py-6 bg-muted/30 rounded-lg">
+            <div className="text-2xl font-mono">
+              <BlockMath math="A_{tot} = k \times A_I" />
+            </div>
+          </div>
+          <CardDescription className="text-sm leading-relaxed">
+            <InlineMath math="A_I" />: The traffic intensity | k: The number of users
+          </CardDescription>
+        </CardContent>
+      </Card>
+      <Card className="hover:shadow-lg  transition-shadow duration-300">
+        <CardHeader>
+          <CardTitle className="text-lg">Calculate Total Traffic Intensity</CardTitle>
+        </CardHeader>
+
+        <CardContent className="space-y-4">
+          {/* Inputs */}
+          <div className="flex gap-2">
+            <Input
+              placeholder="k"
+              value={k}
+              onChange={(e) => setK(e.target.value)}
+              type="number"
+              min="0"
+            />
+            <Input
+              placeholder="AI"
+              value={Ai}
+              onChange={(e) => setAi(e.target.value)}
+              type="number"
+              min="0"
+            />
+            <Button onClick={handleCalc5}>Calculate</Button>
+          </div>
+          <CardDescription className="text-sm leading-relaxed">
+            Everytime you change the values, you need to click "Calculate"
+          </CardDescription>
+          {/* Result */}
+          {result5 !== null && (
+            <div className="text-center p-4 bg-muted/30 rounded">
+              <BlockMath
+                math={`A_{I} = ${k} \\times ${Ai} = ${result5.toFixed(2)}\\ \\text{Erlang}`}
+              />
             </div>
           )}
         </CardContent>

@@ -59,7 +59,7 @@ function Chapter12() {
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            n: number of piconets.
+            n: The number of piconets.
           </CardDescription>
         </CardContent>
       </Card>
@@ -111,7 +111,7 @@ function Chapter12() {
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            n: number of piconets.
+            n: The number of piconets.
           </CardDescription>
         </CardContent>
       </Card>
@@ -163,7 +163,7 @@ function Chapter12() {
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            n: number of piconets.
+            n: The number of piconets.
           </CardDescription>
         </CardContent>
       </Card>
@@ -178,7 +178,7 @@ function Chapter12() {
           {/* Inputs */}
           <div className="flex gap-2">
             <Input
-              placeholder="P"
+              placeholder="P (Probability)"
               value={P}
               onChange={(e) => setP(e.target.value)}
               type="number"

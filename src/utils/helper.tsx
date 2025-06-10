@@ -37,3 +37,6 @@ export function numberOfPiconets(p: number): number {
   const n = Math.log(p) / (2 * Math.log(base)) + 1;
   return n;
 }
+export function totalTrafficIntensity(k: number, ai: number): number {
+  return k * ai;
+}
