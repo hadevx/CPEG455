@@ -295,7 +295,9 @@ function Chapter13() {
           {/* Result */}
           {result4 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
-              <BlockMath math={`A_{I} = ${lambda} \\times ${h} = ${result4.toFixed(2)}`} />
+              <BlockMath
+                math={`A_{I} = ${lambda} \\times ${h} = ${result4.toFixed(2)} \\ \\text{Erlang}`}
+              />
             </div>
           )}
         </CardContent>
@@ -349,7 +351,7 @@ function Chapter13() {
           {result5 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
               <BlockMath
-                math={`A_{I} = ${k} \\times ${Ai} = ${result5.toFixed(2)}\\ \\text{Erlang}`}
+                math={`A_{tot} = ${k} \\times ${Ai} = ${result5.toFixed(2)}\\ \\text{Erlang}`}
               />
             </div>
           )}
