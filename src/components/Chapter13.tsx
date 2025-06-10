@@ -90,7 +90,7 @@ function Chapter13() {
         <CardContent className="space-y-4">
           <div className="text-center py-6 bg-muted/30 rounded-lg">
             <div className="text-2xl font-mono">
-              <BlockMath math="P(B) = \frac{A^N / N!}{\sum_{X=0}^{N} \frac{A^X}{X!}}" />
+              <BlockMath math="P(B) = GOS = \frac{\frac{A^N} {N!}}{\sum_{X=0}^{N} \frac{A^X}{X!}}" />
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
@@ -130,7 +130,7 @@ function Chapter13() {
           {result !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
               <BlockMath
-                math={`P(B)=\\frac{${A}^{${N}}/${N}!}{\\sum_{X=0}^{${N}}\\frac{${A}^X}{X!}} \\;\\approx\\; ${result.toFixed(
+                math={`P(B)=\\frac{\\frac{${A}^{${N}}}{${N}!}}{\\sum_{X=0}^{${N}}\\frac{${A}^X}{X!}} \\;\\approx\\; ${result.toFixed(
                   6
                 )}`}
               />
@@ -187,7 +187,9 @@ function Chapter13() {
           {/* Result */}
           {result2 !== null && (
             <div className="text-center p-4 bg-muted/30 rounded">
-              <BlockMath math={`A_c = ${AA} \\times (1 - ${Pb}) = ${result2.toFixed(4)}`} />
+              <BlockMath
+                math={`A_c = ${AA} \\times (1 - ${Pb}) = ${result2.toFixed(4)} \\ \\text{Erlang}`}
+              />
             </div>
           )}
         </CardContent>
