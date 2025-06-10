@@ -4,7 +4,7 @@ import ContactContent from "./ContactContent.tsx";
 
 export default function Main({ activeSection }: { activeSection: string }) {
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="container mx-auto px-4 lg:px-56 py-8">
       {activeSection === "Home" && <HomeContent />}
       {activeSection === "About" && <AboutContent />}
       {activeSection === "Contact" && <ContactContent />}

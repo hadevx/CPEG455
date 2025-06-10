@@ -1,4 +1,3 @@
-/* ─── UI ─────────────────────────────────────────────────────────────────── */
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/shadcn/ui/card";
 import { Input } from "@/shadcn/ui/input";
 import { Button } from "@/shadcn/ui/button";
@@ -90,11 +89,11 @@ function Chapter13() {
         <CardContent className="space-y-4">
           <div className="text-center py-6 bg-muted/30 rounded-lg">
             <div className="text-2xl font-mono">
-              <BlockMath math="P(B) = GOS = \frac{\frac{A^N} {N!}}{\sum_{X=0}^{N} \frac{A^X}{X!}}" />
+              <BlockMath math="P(B) =  \frac{\frac{A^N} {N!}}{\sum_{X=0}^{N} \frac{A^X}{X!}}" />
             </div>
           </div>
           <CardDescription className="text-sm leading-relaxed">
-            A: Traffic intensity | N: Number of channels.
+            A: The traffic intensity | N: The number of channels.
           </CardDescription>
         </CardContent>
       </Card>
